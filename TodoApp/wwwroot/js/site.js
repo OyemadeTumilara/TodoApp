@@ -1,0 +1,30 @@
+﻿function deleteTodo(i)
+{
+    $.ajax({
+        url: 'Home/Delete',
+        type: 'POST',
+        data: {
+            id:i
+        },
+        success: function () {
+            window.location.reload();
+        }
+    });
+}
+
+function populateForm(i) {
+    $.ajax({
+        url: 'Home/populateForm',
+        type: 'GET',
+        data: {
+            id: i
+        },
+        dataType: 'json',
+        success: function (response) {
+            $("#Todo_Name").val(response.todoname);
+            $("#Todo_Id").val(response.id);
+            $("#form_button").val("Update Todo");
+            $("#form_action").attr("action", "/Home/Update");
+        }
+    });
+}

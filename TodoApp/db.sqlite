@@ -1,0 +1,5 @@
+﻿Create table todo(
+Id Integer PRIMARY KEY AUTOINCREMENT,
+TodoName TEXT, 
+TimeCreated DATETIME
+)
